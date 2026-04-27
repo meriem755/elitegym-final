@@ -1,0 +1,93 @@
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* ── Variables thème sombre (défaut) ── */
+:root, [data-theme="dark"] {
+  --bg: #08090c;
+  --bg2: #0e1018;
+  --bg3: #161924;
+  --card: #12151f;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #edf0f7;
+  --text2: #8b92a8;
+  --text3: #5a6280;
+  --accent: #3b82f6;
+  --accent2: #60a5fa;
+  --accent-glow: rgba(59, 130, 246, 0.20);
+  --red: #ef4444;
+  --radius: 12px;
+}
+
+/* ── Variables thème clair ── */
+[data-theme="light"] {
+  --bg: #f0f4fb;
+  --bg2: #e3eaf6;
+  --bg3: #d5dfef;
+  --card: #ffffff;
+  --border: rgba(29, 78, 216, 0.14);
+  --text: #0b0f1a;
+  --text2: #1e2d4d;
+  --text3: #3d5080;
+  --accent: #1d4ed8;
+  --accent2: #2563eb;
+  --accent-glow: rgba(29, 78, 216, 0.13);
+  --red: #dc2626;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  transition: background 0.35s, color 0.35s;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 99px; }
+
+/* ── Animation marquee ── */
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── Animation spinner ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Fix input focus visible ── */
+input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-glow) !important;
+  outline: none;
+}
+
+/* ── Light theme navbar ── */
+[data-theme="light"] nav {
+  background: rgba(240, 244, 251, 0.93) !important;
+}
+
+/* ── Responsive: cacher les liens nav sur mobile, montrer burger ── */
+@media (max-width: 768px) {
+  nav ul {
+    display: none !important;
+  }
+  nav button[title] + a,
+  nav div a {
+    display: none;
+  }
+}
